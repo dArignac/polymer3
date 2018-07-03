@@ -1,5 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/paper-slider/paper-slider.js'
 
 class IconToggle extends PolymerElement {
   static get template() {
@@ -20,6 +21,8 @@ class IconToggle extends PolymerElement {
   
       <!-- shadow DOM goes here -->
       <iron-icon icon="[[toggleIcon]]"></iron-icon>
+      <br />
+      <paper-slider value="34"></paper-slider>
     `;
   }
   static get properties() {
