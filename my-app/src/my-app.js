@@ -23,6 +23,15 @@ import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
 
+// this fixed multiple loading of custom elements
+// see https://stackoverflow.com/a/50362769/364244
+const _customElementsDefine = window.customElements.define;
+window.customElements.define = function(name, clazz, config) {
+  if (!customElements.get(name)) {
+    _customElementsDefine.call(window.customElements, name, clazz, config);
+  }
+};
+
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
 setPassiveTouchGestures(true);
